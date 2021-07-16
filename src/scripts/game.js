@@ -80,16 +80,16 @@ $('[data-next="#leaderboard"]').click(function () {
   showLeaderboard()
 })
 
-$('#replay').click(function () {
-  axios.put(`https://games-staging.pmisg.cloud.sg/pmi-backoffice/public/api/gameplay2021/replay/${state._current_id}`)
-    .then(res => console.log('replay', res))
-})
+// $('#replay').click(function () {
+//   axios.put(`https://games-staging.pmisg.cloud.sg/pmi-backoffice/public/api/gameplay2021/replay/${state._current_id}`)
+//     .then(res => console.log('replay', res))
+// })
 
-$('#render').click(function () {
-  axios.get(`https://games-staging.pmisg.cloud.sg/pmi-backoffice/public/api/gameplay2021/leaderboard/snake?query=${query}`)
-    .then(res => console.log('render', res))
-    .catch(err => console.log(err))
-})
+// $('#render').click(function () {
+//   axios.get(`https://games-staging.pmisg.cloud.sg/pmi-backoffice/public/api/gameplay2021/leaderboard/snake?query=${query}`)
+//     .then(res => console.log('render', res))
+//     .catch(err => console.log(err))
+// })
 
 const timer = document.querySelector('#timer')
 function runCountdown () {
