@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Leaderboard</title>
+
+  <style>
+    #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      z-index: 9;
+    }
+  </style>
+
+  <link href="./src/fonts/DeathStar.woff2" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700&display=swap" rel="stylesheet">
+  <script src="./src/scripts/game.js" defer type="module"></script>
+</head>
+
+<body>
+  <div id="overlay"></div>
+  <main class="" id="game-container">
+    <div id="game-header" data-variant-red="/images/header-red.png">
+      <div class="flex game-header-row">
+        <div id="timer">60</div>
+        <div id="score">0</div>
+      </div>
+
+      <div id="game-banner">
+        <img src="./src/images/banner/PMI&U.png" alt="" class="center-self banner-image">
+      </div>
+
+      <img src="./src/images/header-blue.png" alt="" class="header-bg">
+      <img src="./src/images/title/snake-title-game-over.png" alt="" class="big-title">
+    </div>
+
+    <div class="preload" style="display: none; background: url('/images/pipe-red.png')"></div>
+    <div id="game-body" data-variant-red="/images/pipe-red.png">
+      <div id="game-board"></div>
+
+      <!-- **Screens** -->
+      <!-- Intro -->
+      <div class="screen active" id="intro">
+        <div class="center-y">
+          <img src="./src/images/Logo.png" alt="" id="logo">
+
+          <img src="./src/images/buttons/snake-btn-start.png" alt="" id="start" class="button center-self"
+            data-next="#tutorial-countdown">
+
+          <!-- <div id="test-api">
+            <button id="start-game">Start</button>
+            <button id="replay">Replay</button>
+            <button id="stop-game">stop</button>
+            <button id="render">Render</button>
+          </div> -->
+        </div>
+      </div>
+
+      <!-- Tutorial Countdown -->
+      <div class="screen tutorial" id="tutorial-countdown" data-animate-on-visible="#timer" data-banner='howtoplay'>
+        <div class="center-y">
+          <div class="text">You have 60 seconds to play the game</div>
+          <div class="anim-sequence snake-sequence"></div>
+        </div>
+
+        <div class="footer-buttons">
+          <div>
+            <img src="./src/images/buttons/SKIP.png" alt="" class="button skip" data-next="#play-screen">
+          </div>
+
+          <div>
+            <img src="./src/images/buttons/NEXT.png" alt="" class="button next" data-next="#tutorial-score">
+          </div>
+        </div>
+      </div>
+
+      <!-- Tutorial Countdown -->
+      <div class="screen tutorial" id="tutorial-score" data-animate-on-visible="#score" data-banner='howtoplay'>
+        <div class="center-y">
+          <div class="text">You have to score by touching the ring </div>
+          <div class="anim-sequence snake-sequence"></div>
+        </div>
+
+        <div class="footer-buttons">
+          <img src="./src/images/buttons/SKIP.png" alt="" class="button skip" data-next="#play-screen">
+          <img src="./src/images/buttons/NEXT.png" alt="" class="button next" data-next="#tutorial-snake">
+        </div>
+      </div>
+
+      <!-- Tutorial play snake -->
+      <div class="screen tutorial" id="tutorial-snake" data-banner='howtoplay'>
+        <div class="center-y">
+          <img src="./src/images/score-table.png" alt="" class="center-self">
+
+          <div class="anim-sequence snake-sequence"></div>
+        </div>
+
+        <div class="footer-buttons">
+          <img src="./src/images/buttons/SKIP.png" alt="" class="button skip" data-next="#play-screen">
+          <img src="./src/images/buttons/NEXT.png" alt="" class="button next" data-next="#tutorial-htp">
+        </div>
+      </div>
+
+      <!-- Tutorial How to play -->
+      <div class="screen tutorial" id="tutorial-htp" data-banner='howtoplay'>
+        <div class="center-y">
+          <div class="text">To move the stick &
+            collect rings, simply swipe up, down, left & right.
+            Avoid the 4 walls or crashing into yourself!
+
+          </div>
+          <img src="./src/images/arrows.png" alt="" class="center-self">
+        </div>
+
+        <div class="footer-buttons">
+          <img src="./src/images/buttons/SKIP.png" alt="" class="button skip" data-next="#play-screen">
+          <img src="./src/images/buttons/NEXT.png" alt="" class="button next" data-next="#tutorial-mission">
+        </div>
+      </div>
+
+      <!-- Tutorial cvs -->
+      <div class="screen tutorial" id="tutorial-mission">
+        <div class="center-y">
+          <div class="text">Join the leaderboard ranking and win these rewards!</div>
+          <div class="text rank-rewards">
+            <div>
+              #1 - #10: $50
+            </div>
+            <div>
+              #11 - #20: $30
+            </div>
+            <div>
+              #21 - #30: $10
+            </div>
+          </div>
+
+          <!-- <div class="anim-sequence snake-sequence">
+          </div> -->
+          <img src="./src/images/buttons/snake-btn-play.png" alt="" class="button play" data-next="#play-screen">
+        </div>
+      </div>
+
+      <!-- Submitting the score -->
+      <div class="screen tutorial" id="data-transmit">
+        <div class="center-y">
+
+          <div class="anim-sequence spinner-sequence"></div>
+          <div class="text" style="margin-bottom: 30px">
+            <div>DO NOT EXIT:</div>
+            Please stay on this
+            page while it is loading
+            your score!
+          </div>
+        </div>
+      </div>
+
+      <div class="screen tutorial" id="final-score">
+        <div class="center-y">
+          <div class="anim-sequence trophy-sequence"></div>
+          <div class="text" style="font-weight: bold;">YOUR SCORE:</div>
+          <div id="result-score" class="text result-score">0</div>
+          <div class="text">
+            Stay tuned on 26 July for the NEXT new product
+            launch on PMI&U - <div class="green">COMING SOON</div>
+          </div>
+
+          <img src="./src/images/buttons/snake-btn-next.png" alt="" class="button  center-self"
+            data-next="#coming-soon">
+        </div>
+      </div>
+
+      <div class="screen" id="coming-soon">
+        <div class="center-y">
+          <div class="text h3 green">NEXT XL LAUNCH</div>
+          <div class="text">
+            NEXT Red, Blue, Menthol XL is <span class="blue">EXTRA Long</span> and provides <span class="red">EXTRA
+              value</span>
+            at an affordable price.
+          </div>
+
+          <div class="text">
+            NEXT is the only Super Low Price cigarette brand with <span class="green">Firm filter</span>;
+            providing a better smoking experience with great quality at your fingertips!
+          </div>
+
+          <img src="./src/images/buttons/snake-btn-next.png" alt="" class="button  center-self"
+            data-next="#leaderboard">
+        </div>
+      </div>
+
+      <div class="screen" id="leaderboard">
+        <div class="ldb ldb-list"></div>
+
+        <div class="separator"></div>
+        <div id="my-rank" class="ldb"></div>
+        <div class="center-y">
+          <img src="./src/images/buttons/snake-btn-play-again.png" alt="" class="button play-again center-self"
+            id="play-again">
+          <img src="./src/images/buttons/snake-btn-exit.png" alt="" class="button exit" id="exit"
+            data-href="https://sg.pmiandu.com/s/Learn/NEXTXL">
+        </div>
+      </div>
+
+      <div class="screen" id="fail-screen">
+        <div class="center-y">
+          <img src="./src/images/exclamation.png" alt="" class="center-self" style="max-width: 130px">
+
+          <div class="text" style="font-weight: bold;">YOUR SCORE:</div>
+          <div id="result-score" class="text result-score">0</div>
+          <div class="text">
+            You have not completed the game successfully.
+            Please try again!
+          </div>
+
+          <img src="./src/images/buttons/snake-btn-play-again.png" alt="" class="button play-again center-self"
+            id="play-again">
+          <img src="./src/images/buttons/snake-btn-exit.png" alt="" class="button exit" id="exit"
+            data-href="https://sg.pmiandu.com/s/Learn/NEXTXL">
+
+        </div>
+      </div>
+
+      <div id="play-screen" class="screen"></div>
+    </div>
+
+    <!-- Frame footer -->
+    <img src="./src/images/footer-blue.png" alt="" id="game-footer" data-variant-red="/images/footer-red.png">
+  </main>
+</body>
+
+</html>

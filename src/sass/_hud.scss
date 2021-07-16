@@ -1,0 +1,277 @@
+/**
+* Utils
+*/
+.flex {
+  display: flex;
+}
+
+.center-self {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}
+
+.screen .center-self img,
+.screen .center-y img:not(.button) {
+  max-width: 60%;
+  margin: auto;
+}
+
+.center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.center-x {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 100%;
+}
+
+.center-y {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+.game-header-row {
+  justify-content: space-between;
+  padding: 0 20px;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 100%;
+
+  @media only screen
+    and (min-width: 375px) {
+      top: 50px;
+  }
+
+  @media screen and (min-width: 375px) {
+    top: 50px;
+  }
+}
+
+.screen {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 100%;
+  margin: 0 25px;
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}
+
+.button {
+  cursor: pointer;
+  display: block;
+  outline: none;
+}
+
+// Intro screen
+#logo {
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+#start {
+}
+
+.text {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: bold;
+  line-height: 32px;
+  color: #fff;
+  text-align: center;
+  padding: 0 20px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 24px;
+
+  @media only screen
+    and (min-width: 375px) {
+      font-size: 19px;
+      line-height: 30px;
+  }
+
+  &.small {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: bold;
+  }
+}
+
+.footer-buttons {
+  position: absolute;
+  bottom: -15px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.anim-sequence {
+  // height: 140px;
+  height: 100px;
+
+  @media only screen
+    and (min-width: 375px) {
+      height: 100px;
+  }
+}
+
+.anim-sequence img {
+  // width: 300px;
+  max-width: 80% !important;
+
+  // we stack all image containers one above another
+  position: absolute;
+  opacity: 0;
+
+  // and place them in the middle of the screen
+  left: 50%;
+  transform: translateX(-50%);
+
+  @media only screen
+    and (min-width: 375px) {
+    max-width: 80% !important;
+  }
+}
+
+.blink {
+  animation: blink 0.5s ease-in;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+#game-banner {
+  position: absolute;
+  left: 50%;
+  bottom: 6.8%;
+  transform: translateX(-50%);
+  height: 62px;
+  width: auto;
+  display: flex;
+  align-items: center;
+
+  @media only screen
+  and (max-width: 360px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    bottom: 5%
+  }
+
+  @media only screen
+  and (max-width: 320px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    bottom: 2%
+  }
+}
+
+.header-bg {
+  width: 100%;
+  max-width: unset;
+}
+
+.big-title {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.result-score {
+  // margin: 20px 0;
+  margin: 10px 0;
+  font-weight: bold;
+  font-size: 25px;
+  // 30px
+}
+
+.preloaded {
+  height: 1px;
+  width: 1px;
+  position: absolute;
+  z-index: -999
+}
+
+.green {
+  text-shadow: 0 0 24px #72da03, 0 0 20px #72da03, 0 0 24px #72da03,
+}
+
+.blue {
+  text-shadow: 0 0 24px #44c4ff, 0 0 20px #44c4ff, 0 0 24px #44c4ff,
+}
+
+.red {
+  text-shadow: 0 0 24px #ff3838, 0 0 20px #ff3838, 0 0 24px #ff3838,
+}
+
+.green,
+.red,
+.blue {
+  white-space: pre;
+}
+
+// Leaderboard
+.ldb {
+  margin: 0 25px;
+
+  &__item {
+    display: flex;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+  }
+
+  &__rank {
+    margin-right: 20px;
+  }
+
+  &__score {
+    text-align: right;
+    flex: 1;
+  }
+}
+
+.separator {
+  margin: 30px 25px;
+  height: 6px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 15px 10px #44c4ff;
+  opacity: .5;
+}
+
+.ldb-list {
+  opacity: 0.5;
+}
