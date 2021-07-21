@@ -89,6 +89,11 @@ export function nextScreen () {
     updateAsset(gameBanner, howtoplayImgUrl)
   }
 
+  if ($(id).find('.banner-url')) {
+    console.log($(id).find('.banner-url'))
+    updateAsset(gameBanner, $(id).find('.banner-url').attr('src'))
+  }
+
   $(this)
     .closest('.screen')
     .fadeOut(function () {

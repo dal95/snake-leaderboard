@@ -218,15 +218,22 @@
   height: 1px;
   width: 1px;
   position: absolute;
-  z-index: -999
+  z-index: -999;
+  clip: rect(0px 0px 0px 0px);
 }
 
 .green {
-  text-shadow: 0 0 24px #01ef92, 0 0 20px #01ef92, 0 0 24px #01ef81,
+  text-shadow: 0 0 24px #01ef92, 0 0 20px #7def01, 0 0 24px #01ef81;
 }
 
 .blue {
-  text-shadow: 0 0 24px #44c4ff, 0 0 20px #44c4ff, 0 0 24px #44c4ff,
+  text-shadow: 0 0 24px #44c4ff, 0 0 20px #1dc0ff, 0 0 24px #0400ff;
+
+  &.text {
+    mix-blend-mode: color-dodge;
+    filter: drop-shadow(0px 0px 45px #44c4ff)
+
+  }
 }
 
 .red {
@@ -281,11 +288,15 @@
 }
 
 .sticky-bottom {
-    position: absolute;
-    bottom: 20px;
-    display: flex;
-    justify-content: space-between;
-    /* width: 100%; */
-    right: 0;
-    flex-direction: column;
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  /* width: 100%; */
+  right: 0;
+  flex-direction: column;
+}
+
+.banner-url {
+  display: none;
 }
