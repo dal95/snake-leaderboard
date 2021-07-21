@@ -59,7 +59,7 @@ $('#game-container')
       }
     })
       .then(res => {
-        state._current_id = res.data.data.id
+        state._current_user = res.data.data
       })
       .catch(err => console.log(err.message))
   })

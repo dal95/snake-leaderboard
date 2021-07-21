@@ -4,7 +4,7 @@ const state = {
   CELL_DIMENSION: 10,
   COUNTDOWN: 60, // 60,
   MIN_SCORE: 40,
-  _current_id: null
+  _current_user: null
 }
 
 export default state
