@@ -140,6 +140,7 @@ function showFinalScore () {
 }
 
 export function showLeaderboard () {
+  $('.separator').hide()
   $('.screen').fadeOut()
   changeFrame('blue-headless')
   $(gameTitle).hide()
@@ -167,8 +168,6 @@ export function showLeaderboard () {
         }])
 
         $('.separator').fadeIn()
-      } else {
-        $('.separator').hide()
       }
     })
     .catch(err => console.log(err))
