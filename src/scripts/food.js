@@ -23,7 +23,7 @@ export function draw (gameBoard) {
   gameBoard.appendChild(foodElement)
 }
 
-function getRandomFood () {
+export function getRandomFood () {
   let newFoodPosition, powerUpType
   while (newFoodPosition == null || onSnake(newFoodPosition)) {
     newFoodPosition = randomGridPosition()

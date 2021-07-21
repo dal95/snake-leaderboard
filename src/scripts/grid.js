@@ -1,8 +1,9 @@
 import state from './state'
 import { gameBoard, getGridSize } from './init'
 
-state.GRID_SIZE = getGridSize(gameBoard)
 export function randomGridPosition () {
+  state.GRID_SIZE = getGridSize(gameBoard)
+  console.log('random', state.GRID_SIZE)
   return {
     x: Math.floor(Math.random() * state.GRID_SIZE.x) || 1,
     y: Math.floor(Math.random() * state.GRID_SIZE.y) || 1
