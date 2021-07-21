@@ -279,3 +279,13 @@
 .h3 {
   font-size: 25px
 }
+
+.sticky-bottom {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    /* width: 100%; */
+    right: 0;
+    flex-direction: column;
+}

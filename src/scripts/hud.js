@@ -165,6 +165,10 @@ export function showLeaderboard () {
           first_name: 'You',
           higher_score: state.SCORE
         }])
+
+        $('.separator').fadeIn()
+      } else {
+        $('.separator').hide()
       }
     })
     .catch(err => console.log(err))
