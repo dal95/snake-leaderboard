@@ -159,11 +159,13 @@ export function showLeaderboard () {
         }
       }))
 
-      renderLeaderboard('#my-rank', [{
-        rank: res.data.my_rank_position,
-        first_name: 'You',
-        higher_score: state.SCORE
-      }])
+      if (res.data.my_rank_position > 10) {
+        renderLeaderboard('#my-rank', [{
+          rank: res.data.my_rank_position,
+          first_name: 'You',
+          higher_score: state.SCORE
+        }])
+      }
     })
     .catch(err => console.log(err))
 }
