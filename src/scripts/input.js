@@ -1,6 +1,7 @@
 import nipplejs from 'nipplejs'
 
-let inputDirection = { x: 0, y: 0 }
+export const started = false
+let inputDirection = { x: -1, y: 0 }
 let lastInputDirection = { x: 0, y: 0 }
 
 const options = {

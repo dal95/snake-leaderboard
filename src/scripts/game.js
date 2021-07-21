@@ -27,6 +27,7 @@ import {
   gameTitle,
   showLeaderboard
 } from './hud'
+import { started } from './input'
 
 imagesLoaded.makeJQueryPlugin($)
 
