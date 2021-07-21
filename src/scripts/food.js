@@ -1,13 +1,13 @@
 import { onSnake, expandSnake, transformSnake } from './snake.js'
 import { randomGridPosition } from './grid.js'
 import { redeemBoost } from './hud'
+import state from './state'
 
 let food = getRandomFood()
-const EXPANSION_RATE = 1
 
 export function update () {
   if (onSnake(food.position)) {
-    expandSnake(EXPANSION_RATE)
+    expandSnake(state.EXPANSION_RATE)
     transformSnake(food.type)
     redeemBoost(food.type)
     food = getRandomFood()
