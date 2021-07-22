@@ -14,7 +14,7 @@ import {
 import { update as updateFood, draw as drawFood } from './food.js'
 import { outsideGrid } from './grid.js'
 import state from './state'
-import init, { getGridSize } from './init'
+import init from './init'
 import {
   updateHud,
   updateAsset,
@@ -64,7 +64,7 @@ $(window).on('load', function () {
         .catch(err => console.log(err.message))
     })
     .progress(function (instance, image) {
-      const result = image.isLoaded ? 'loaded' : 'broken'
+      // const result = image.isLoaded ? 'loaded' : 'broken'
     // console.log('image is ' + result + ' for ' + image.img.src)
     })
 })

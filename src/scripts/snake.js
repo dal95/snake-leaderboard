@@ -14,7 +14,6 @@ export function update () {
   addSegments()
 
   const inputDirection = getInputDirection()
-  console.log(inputDirection)
 
   if ((inputDirection.x === 0 && inputDirection.y === 0)) return
 

@@ -90,14 +90,12 @@ export function nextScreen () {
   }
 
   if ($(id).find('.banner-url')) {
-    console.log($(id).find('.banner-url'))
     updateAsset(gameBanner, $(id).find('.banner-url').attr('src'))
   }
 
   $(this)
     .closest('.screen')
     .fadeOut(function () {
-      console.log(id)
       $(id).fadeIn()
 
       if ($(id).data('animate-on-visible')) {
@@ -157,7 +155,6 @@ export function showLeaderboard () {
   axios.get(`https://games-staging.pmisg.cloud.sg/pmi-backoffice/public/api/gameplay2021/leaderboard/snake-leaderboard?query=${query}`)
     .then(res => {
       renderLeaderboard('#leaderboard .ldb-list', res.data.leaderboard_list.map(user => {
-        console.log(user)
         if (user.first_name === state._current_user.first_name) {
           return { ...user, first_name: 'You' }
         } else {
